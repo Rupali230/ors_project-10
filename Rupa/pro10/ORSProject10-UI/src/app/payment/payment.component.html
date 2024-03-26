@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div align="center">
+  <h3 *ngIf="form.id>0">Update payment</h3>
+  <h3 *ngIf="!form.id>0">Add payment</h3>
+  <h3>{{form.message}}</h3>
+  <table>
+  
+ 
+    <tr>
+      <th> payment:</th>
+      <td><input type="text" [(ngModel)]="form.payment"></td>
+      <td *ngIf="inputerror. payment!=null">{{inputerror. payment}}</td>
+
+    </tr>
+    <tr>
+      <th>paymentid:</th>
+      <td><input type="text" [(ngModel)]="form.paymentid"></td>
+      <td *ngIf="inputerror.paymentid!=null">{{inputerror.paymentid}}</td>
+
+    </tr>
+    <tr>
+      <th>paymentmode:</th>
+      <td><input type="text" [(ngModel)]="form.paymentmode"></td>
+      <td *ngIf="inputerror.paymentmode!=null">{{inputerror.paymentmode}}</td>
+
+    </tr>
+    <tr>
+      <th>paymentstauts:</th>
+      <td><input type="text" [(ngModel)]="form.paymentstauts"></td>
+      <td *ngIf="inputerror.paymentstauts!=null">{{inputerror.paymentstauts}}</td>
+
+    </tr>
+
+    <tr>
+      
+      <th></th>
+      <td>
+
+        <button *ngIf="form.id > 0; else add" (click)="save()">Update</button>
+        <ng-template #add>
+          <button *ngIf="!form.id>0;" (click)="save()">Add</button>
+        </ng-template>
+      </td>
+
+
+
+    </tr>
+  </table>
+</div>
+<app-footer></app-footer>

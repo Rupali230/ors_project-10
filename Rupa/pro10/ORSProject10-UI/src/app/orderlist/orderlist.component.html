@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<h3>{{form.message}}</h3>
+
+       <div align="center">
+        <h2> Order List</h2>
+</div>
+        
+             <th>OrderName</th> 
+              <td>  <input type="text" [(ngModel)]="form.searchParam.OrderName" placeholder="search OrderName"/> </td>
+            
+                
+                <th>OrderAmount</th>
+             <td>  <input type="text" [(ngModel)]="form.searchParam.OrderAmount" placeholder="search OrderAmount"/> </td>
+              
+
+             <th>OrderAddress</th>
+             <td>  <input type="text" [(ngModel)]="form.searchParam.OrderAddress" placeholder="search OrderAddress"/> </td>
+
+
+
+            <th>OrderType</th>
+            <td>  <input type="text" [(ngModel)]="form.searchParam.OrderType" placeholder="search OrderType"/> </td>
+           <td> <button (click)="search()">Search</button></td>
+
+ 
+
+
+            <form>
+        <table border="2" width="100%" cellpadding=6px cellspacing=".2">
+            <tr>
+                <th>OrderName</th>
+                <th>OrderAmount</th>
+                <th>OrderAddress</th>
+                <th>OrderType</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+
+            <tr *ngFor="let m of form.list">
+
+                <td>{{m.OrderName}}</td>
+                <td>{{m.OrderAmount}}</td>
+                <td>{{m.OrderAddress}}</td>
+                <td>{{m.OrderType}}</td>
+                
+
+                <td><button (click)="forward('/order/' +m.id)">Edit</button></td>
+                <td><button (click)="delete(m.id)">Delete</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+<app-footer></app-footer>

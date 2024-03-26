@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<h3>{{form.message}}</h3>
+
+<div align="center">
+  <h2> Payment List</h2>
+</div>
+
+<th>Payment</th>
+<td><input type="text" [(ngModel)]="form.searchParam.payment" placeholder="search Payment" /></td>
+
+
+<th>PaymentId</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.paymentid" placeholder="search paymentid" /> </td>
+
+
+<th>PaymentMode</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.paymentmode" placeholder="search paymentmode" /> </td>
+
+
+
+<th>PaymentStauts</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.paymentstauts" placeholder="search paymentstauts" /> </td>
+
+ <!-- <td> <select name="PaymentId" [(ngModel)]="form.searchParam.paymentid">
+    <option [ngValue]="" value="undefined">{{ Select Payment }}</option>
+    <option *ngFor="let obj of form.preload.paymentList" [value]="obj.key">{{obj.value}}</option>
+  </select>
+</td>  -->
+
+<td> <button (click)="search()">Search</button></td>
+
+
+
+
+<form>
+  <table border="2" width="100%" cellpadding=6px cellspacing=".2">
+    <tr>
+      <th>payment</th>
+      <th>paymentid</th>
+      <th>Paymentmode</th>
+      <th>paymentstauts</th>
+      <th>EDIT</th>
+      <th>DELETE</th>
+    </tr>
+
+    <tr *ngFor="let m of form.list">
+
+      <td>{{m.payment}}</td>
+      <td>{{m.paymentid}}</td>
+      <td>{{m.paymentmode}}</td>
+      <td>{{m.paymentstauts}}</td>
+
+
+      <td><button (click)="forward('/payment/' +m.id)">Edit</button></td>
+      <td><button (click)="delete(m.id)">Delete</button></td>
+    </tr>
+  </table>
+
+
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;">
+        <button (click)="previous()" [disabled]="form.pageNo == 0">PREVIOUS
+         </button>
+      </td>
+
+
+
+      <td><button (click)="next()" [disabled]="nextlist==0" type="button">NEXT</button></td>
+    </tr>
+  </table>
+
+
+
+</form>
+
+
+<app-footer></app-footer>

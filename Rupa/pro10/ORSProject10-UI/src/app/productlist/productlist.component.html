@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+<h3 style="color:green;" align="center"  > {{form.message}}</h3>
+
+<div align="center">
+  <h2> Product List</h2>
+</div>
+
+ <th>productname</th>
+<td><input type="text" [(ngModel)]="form.searchParam.productname" placeholder="search productname" /></td>
+
+
+<th>id</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.productid" placeholder="search productid" /> </td>
+
+
+ <th>customername</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.customername" placeholder="search customername" /> </td>
+
+
+
+<th>productaddress</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.productaddress" placeholder="search productaddress" /> </td>
+
+<th>productammount</th>
+<td> <input type="text" [(ngModel)]="form.searchParam.productammount" placeholder="search productammount" /> </td>
+
+
+ <!-- <td> <select name="PaymentId" [(ngModel)]="form.searchParam.paymentid">
+    <option [ngValue]="" value="undefined">{{ Select Payment }}</option>
+    <option *ngFor="let obj of form.preload.paymentList" [value]="obj.key">{{obj.value}}</option>
+  </select>
+</td>  -->
+
+<td> <button (click)="search()">Search</button></td>
+
+
+
+
+<form>
+  <table border="2" width="100%" cellpadding=6px cellspacing=".2">
+    <tr>
+      <th>productname</th>
+      <th>productid</th>
+      <th>customername</th>
+      <th>productaddress</th>
+      <th>productammount</th>
+
+      <th>EDIT</th>
+      <th>DELETE</th>
+    </tr>
+
+    <tr *ngFor="let m of form.list">
+
+      <td>{{m.productname}}</td>
+      <td>{{m.productid}}</td>
+      <td>{{m.customername}}</td>
+      <td>{{m.productaddress}}</td>
+      <td>{{m.productammount}}</td>
+
+      <td><button (click)="forward('/product/' +m.id)">Edit</button></td>
+      <td><button (click)="delete(m.id)">Delete</button></td>
+    </tr>
+  </table>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;">
+        <button (click)="previous()" [disabled]="form.pageNo == 0"> {{'Previous' | translate
+          }} </button>
+      </td>
+
+
+
+      <td><button (click)="next()" [disabled]="nextlist==0" type="button"> {{'Next' |
+          translate }}</button></td>
+    </tr>
+  </table> -->
+
+
+
+</form>
+
+
+<app-footer></app-footer>

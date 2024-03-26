@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<div align="center">
+  <h3 *ngIf="form.id>0">Update product</h3>
+  <h3 *ngIf="!form.id>0">Add product</h3>
+   <h3  *ngIf="form.error==false && form.message != null" style="color:green;" >{{form.message}}</h3> 
+  <table>
+  
+
+     <!-- <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{form.message}}
+    </div>  -->
+
+
+    <!-- <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{form.message}}
+    </div> -->
+ 
+    <tr>
+      
+      <th> productname:</th>
+      <td><input type="text"   [(ngModel)]="form.productname" ></td>
+      <td *ngIf="inputerror. productname  !=null" style="color: red;">{{inputerror. productname}}</td>
+
+    </tr>
+    <tr>
+      
+      <th>productid:</th>
+      <td><input type="text" [(ngModel)]="form.productid"></td>
+      <td *ngIf="inputerror.productid!=null" style="color: red;">{{inputerror.productid}}</td>
+
+    </tr>
+    <tr>
+      
+      <th>customername:</th>
+      <td><input type="text" [(ngModel)]="form.customername"></td>
+      <td *ngIf="inputerror.customername!=null" style="color: red;">{{inputerror.customername}}</td>
+
+    </tr>
+    <tr>
+      <th>productaddress:</th>
+      <td><input type="text" [(ngModel)]="form.productaddress"></td>
+      <td *ngIf="inputerror.productaddress!=null" style="color: red;">{{inputerror.productaddress}}</td>
+    </tr>
+
+
+    <tr>
+      <th>productammount:</th>
+      <td><input type="text" [(ngModel)]="form.productammount"></td>
+      <td *ngIf="inputerror.productammount!=null" style="color: red;">{{inputerror.productammount}}</td>
+    </tr>
+
+    <tr>
+      
+      <th></th>
+      <td>
+
+        <button *ngIf="form.id > 0; else add" (click)="save()">Update</button>
+        <ng-template #add>
+          <button *ngIf="!form.id>0;" (click)="save()">Add</button>
+        </ng-template>
+      </td>
+
+
+
+    </tr>
+  </table>
+</div>
+<app-footer></app-footer>

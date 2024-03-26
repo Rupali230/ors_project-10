@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div align="center">
+  <h3 *ngIf="form.id>0">Update Order</h3>
+  <h3 *ngIf="!form.id>0">Add Order</h3>
+  <h3>{{form.message}}</h3>
+  <table>
+  
+ 
+    <tr>
+
+
+
+      <div *ngIf="!form.error && form.message != null" class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+  
+  
+      <div *ngIf="form.error && form.message != null" class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+      </div>
+   
+      
+
+      <th>OrderName:</th>
+
+      <td > <input type="text" style="color: red;" [(ngModel)]="form.OrderName"></td>
+
+      <td *ngIf="inputerror. OrderName!=null">{{inputerror. OrderName}}</td>
+
+     
+
+    </tr>
+    <tr>
+      <th>OrderAmount:</th>
+      <td><input type="text" [(ngModel)]="form.OrderAmount"></td>
+      <td *ngIf="inputerror.OrderAmount!=null">{{inputerror.OrderAmount}}</td>
+
+    </tr>
+    <tr>
+      <th>OrderAddress:</th>
+      <td><input type="text" [(ngModel)]="form.OrderAddress"></td>
+      <td *ngIf="inputerror.OrderAddress!=null">{{inputerror.OrderAddress}}</td>
+
+    </tr>
+    <tr>
+      <th>OrderType:</th>
+      <td><input type="text" [(ngModel)]="form.OrderType"></td>
+      <td *ngIf="inputerror.OrderType!=null">{{inputerror.OrderType}}</td>
+    </tr>
+
+    <tr>
+      
+      <th></th>
+      <td>
+
+        <button *ngIf="form.id > 0; else add" (click)="save()">Update</button>
+        <ng-template #add>
+          <button *ngIf="!form.id>0;" (click)="save()">Add</button>
+        </ng-template>
+      </td>
+
+
+
+    </tr>
+   
+     
+  </table>
+</div>
+<app-footer></app-footer>

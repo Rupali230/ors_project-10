@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div align="center">
+  <h3 *ngIf="form.id>0">Update Employee</h3>
+  <h3 *ngIf="!form.id>0">Add Employee</h3>
+  <h3>{{form.message}}</h3>
+  <table>
+  
+ 
+    <tr>
+      <th>EmployeeName:</th>
+      <td><input type="text" [(ngModel)]="form.employeename"></td>
+      <td *ngIf="inputerror. employeename!=null">{{inputerror. employeename}}</td>
+
+    </tr>
+    <tr>
+      <th>employeeid:</th>
+      <td><input type="text" [(ngModel)]="form.employeeid"></td>
+      <td *ngIf="inputerror.employeeid!=null">{{inputerror.employeeid}}</td>
+
+    </tr>
+    <tr>
+      <th>employeework:</th>
+      <td><input type="text" [(ngModel)]="form.employeework"></td>
+      <td *ngIf="inputerror.employeework!=null">{{inputerror.employeework}}</td>
+
+    </tr>
+    <tr>
+      <th>employeesalery:</th>
+      <td><input type="text" [(ngModel)]="form.employeesalery"></td>
+      <td *ngIf="inputerror.employeesalery!=null">{{inputerror.employeesalery}}</td>
+    </tr>
+
+    <tr>
+      
+      <th></th>
+      <td>
+
+        <button *ngIf="form.id > 0; else add" (click)="save()">Update</button>
+        <ng-template #add>
+          <button *ngIf="!form.id>0;" (click)="save()">Add</button>
+        </ng-template>
+      </td>
+
+
+
+    </tr>
+   
+     
+  </table>
+</div>
+<app-footer></app-footer>
