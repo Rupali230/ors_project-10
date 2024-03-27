@@ -62,6 +62,25 @@ export class ProductlistComponent implements OnInit {
     })
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   // next() {
   //   this.form.pageNo++;
   //   this.search();
