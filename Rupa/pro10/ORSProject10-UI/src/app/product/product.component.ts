@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
   save() {
 
     var _self = this;  
-    this.form.error = false;
+    
     this.http.post('http://localhost:8080/product/add', this.form).subscribe((res: any) => {
        _self.inputerror={};
 
